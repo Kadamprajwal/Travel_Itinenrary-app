@@ -1,0 +1,30 @@
+<%- layout('/layouts/boilerplate') -%> 
+<div class="row mt-3">
+    <div class="col-8 offset-3">
+    <h3><%= itinenrary.title %></h3>
+  </div>
+    <div class="card col-6 offset-3 show-card itinenrary-card">
+      <img src="<%= itinenrary.image.url %>" class="card-img-top show-img" alt="itinenrary_image">
+      <div class="card-body">
+        <p class="card-text">
+         <%= itinenrary.description %> <br> <br>
+         &#8377; <%= itinenrary.price.toLocaleString("en-IN") %> / Person <br> 
+         <b>StartDate :</b><%= new Date(itinenrary.startDate).toLocaleDateString('en-IN') %> <br>
+        <b>EndDate :</b> <%= new Date(itinenrary.endDate).toLocaleDateString('en-IN') %><br>
+         <b>Activities :</b><%=itinenrary.activities%> <br>
+         <b>Accommodation :</b><%=itinenrary.accommodation%> <br>
+        <b>Transport :</b> <%=itinenrary.transport%> <br>
+        </p>
+      </div>
+    </div>
+
+    <div class="btns mb-3">
+        <a href="/itinenrary/<%= itinenrary._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+      <br /><br />
+      <form method="POST" action="/itinenrary/<%=itinenrary._id%>?_method=DELETE">
+        <button class="btn btn-dark offset-4">Delete</button>
+      </form>
+      </div>
+
+
+

@@ -1,0 +1,116 @@
+<%- layout('/layouts/boilerplate') -%> 
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3 class="mb-3"><b>Edit your Itinenrary</b></h3>
+    <form  method="POST" action="/itinenrary/<%=itinenrary._id%>?_method=PUT" novalidate class="needs-validation">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+        <input 
+        name="itinenrary[title]" 
+        value="<%= itinenrary.title %>" 
+        type="text"  
+        class="form-control" 
+        required >
+        <div class="valid-feedback">Title Looks good!</div>
+     </div>
+
+     
+     <div class="mb-3">
+        <label for="description" class="form-label">description</label>
+        <textarea 
+        name="itinenrary[description]" 
+        class="form-control" 
+        required><%= itinenrary.description %></textarea>
+          <div class="invalid-feedback">Please Enter a short description</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image Link</label>
+          <input 
+          name="itinenrary[image]" 
+          value="<%= itinenrary.image.url %>" 
+          type="text" 
+          class="form-control"
+          required 
+          />
+          <div class="invalid-feedback">Please Enter a valid Link for image</div>
+          </div>
+          
+          <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input 
+            name="itinenrary[price]" 
+            value="<%= itinenrary.price %>" 
+            type="number" 
+            class="form-control"
+            required 
+            />
+            <div class="invalid-feedback">Price should be a valid</div>
+            </div>
+
+            <div class="mb-3 col-md-4">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input
+                  name="itinenrary[startDate]"
+                  value="<%= new Date(itinenrary.startDate).toLocaleDateString('en-GB') %>"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+              
+              <div class="mb-3 col-md-4">
+                <label for="endDate" class="form-label">End Date</label>
+                <input
+                  name="itinenrary[endDate]"
+                  value="<%= new Date(itinenrary.endDate).toLocaleDateString('en-GB') %>"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+              
+            </div>
+
+            <div class="mb-3">
+                <label for="activities" class="form-label">Activities</label>
+                <input
+                name="itinenrary[activities]"
+                value="<%= itinenrary.activities %>"
+                type="text"
+                class="form-control"
+                required
+              />
+                </div>
+
+                <div class="mb-3">
+                    <label for="accommodation" class="form-label">Accommodation</label>
+                    <input
+                    name="itinenrary[accommodation]"
+                    value="<%= itinenrary.accommodation %>"
+                    type="text"
+                    class="form-control"
+                    required
+                  />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="transport" class="form-label">Transport</label>
+                        <input
+                        name="itinenrary[transport]"
+                        value="<%= itinenrary.transport %>"
+                        type="text"
+                        class="form-control"
+                        required
+                      />
+                      <div class="invalid-feedback">transport should be a valid</div>
+                        </div>
+
+    <button class="btn btn-dark edit-btn mt-3 mb-3">Edit</button>
+  </form>
+</div>
+</div>
+
+     
+        

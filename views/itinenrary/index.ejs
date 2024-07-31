@@ -1,0 +1,26 @@
+<%- layout('/layouts/boilerplate') -%> 
+    <h3 class="mt-3">ALL Itinenrarys</h3>
+   
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for (let itinenrary of allItinenrarys) { %>
+          <a href="/itinenrary/<%= itinenrary.id %>" class="itinenrary-link">
+            <div class="card col itinenrary-card">
+          
+              <img src="<%= itinenrary.image.url %>" class="card-img-top" alt="itinenrary_image"  style="height: 20rem"> 
+              <div class="card-img-overlay"></div>
+              <div class="card-body">
+                 <p class="card-text">
+                  <b> <%= itinenrary.title %> <br></b>
+                   &#8377; <%= itinenrary.price.toLocaleString("en-IN") %> / person
+                 </p>
+               </div>
+             </div>
+          </a>
+         
+  
+          <% } %>
+      </div>
+  
+
+
+    
